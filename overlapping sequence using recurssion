@@ -1,0 +1,42 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int overlap(char str[],int countt,int start,int endd,int len)
+{
+    if(endd>len)
+    {
+       return countt;
+    }
+    else
+    {
+        countt++;
+        overlap(str,countt,start+1,endd+1,len);
+    }
+
+}
+int nonoverlap(char str[],int countt,int start,int endd,int len)
+{
+   // cout<<"start="<<start<<"  "<<"endd="<<endd<<endl;
+    if(endd>len)
+    {
+        return countt;
+    }
+    else
+    {
+        countt++;
+
+        nonoverlap(str,countt,start+3,endd+3,len);
+    }
+}
+int main()
+{
+    char str[10008];
+    int len,start=0,endd=2,countt=0,value,value1;
+    cin>>str;
+    len=strlen(str)-1;
+    value=overlap(str,countt,start,endd,len);
+    value1=nonoverlap(str,countt,0,2,len);
+    cout<<value<<endl;
+    cout<<value1;
+    return 0;
+}
