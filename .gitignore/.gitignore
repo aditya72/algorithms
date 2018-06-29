@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int lastindex(int a[],int start,int endd,int index,int ans)
+{
+if(a[endd]==index)
+    {
+    return endd;
+    }
+
+    lastindex(a,start,endd-1,index,ans);
+}
+int main()
+{
+    int start,n,endd,a[1000],i,ind,index,ans;
+    cin>>n;
+    start=0,endd=n-1;
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    cin>>index;
+    ind=lastindex(a,start,endd,index,ans);
+    cout<<ind;
+    return 0;
+}
