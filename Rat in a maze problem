@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+bool ratinmaze(char arr[][1000],int r,int c,int row,int col)
+{
+    if(r==row-1 && c==col-1)
+    {
+        arr[r][c]='1';
+        return true;
+    }
+    if(r>=row || c>=col)
+    {
+        return false;
+    }
+    if(arr[r][c]=='X')
+    {
+        return false;
+    }
+    arr[r][c]='1';
+    bool forr=ratinmaze(arr,r,c+1,row,col);
+    if(forr)
+    {
+        return true;
+    }
+   bool down=ratinmaze(arr,r+1,c,row,col);
+    if(down)
+    {
+        return true;
+    }
+//arr[r][c]='0';
+//return false;
+}
+int main()
+{
+    char arr[1000][1000]={};
+    int i,j,n,r,c,row,col;
+    bool value;
+    cin>>row;
+    cin>>col;
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    value=ratinmaze(arr,0,0,row,col);
+    if(value)
+    {
+        for(i=0;i<row;i++)
+        {
+            for(j=0;j<col;j++)
+            {
+                if(arr[i][j]=='O' || arr[i][j]=='X')
+                {
+                    arr[i][j]='0';
+                    cout<<arr[i][j]<<" ";
+                }
+                else
+                {
+                    cout<<arr[i][j]<<" ";
+                }
+
+            }
+             cout<<endl;
+        }
+
+    }
+    else
+    {
+         cout<<"-1";
+    }
+
+    return 0;
+
+}
