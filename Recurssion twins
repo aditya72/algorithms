@@ -1,0 +1,24 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int twin(char str[],int start,int endd,int countt)
+{
+    if(start>endd)
+        return countt;
+    if(str[start]==str[start+2])
+    {
+    countt++;
+    }
+    twin(str,start+1,endd,countt);
+
+}
+int main()
+{
+char str[1000];
+int start=0,endd,value,countt;
+cin>>str;
+endd=strlen(str)-3;
+value=twin(str,start,endd,0);
+cout<<value;
+return 0;
+}
