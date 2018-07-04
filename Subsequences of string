@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int countt=0;
+void counttsub(char str[],int start1,int start2)
+{
+    if(str[start1]=='\0')
+    {
+        countt++;
+        return;
+    }
+    counttsub(str,start1+1,start2);
+    counttsub(str,start1+1,start2+1);
+}
+void subsequences(char str[],char ans[],int start1,int start2)
+{
+    if(str[start1]=='\0')
+    {
+        ans[start2]='\0';
+        cout<<ans<<" ";
+        countt++;
+        return;
+    }
+    ans[start2]='\0';
+    subsequences(str,ans,start1+1,start2);
+    ans[start2]=str[start1];
+    subsequences(str,ans,start1+1,start2+1);
+
+}
+int main()
+{
+    int start1,start2;
+    char str[1000],ans[1000];
+    cin>>str;
+    start1=0,start2=0;
+    counttsub(str,start1,start2);
+    cout<<countt<<endl;
+    subsequences(str,ans,start1,start2);
+    return 0;
+}
