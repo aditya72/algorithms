@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+void duplicate(char str[],int start,int endd)
+{
+    if(start==endd)
+    {
+        str[endd+1]='\0';
+        return;
+    }
+    if(str[start]==str[start+1])
+    {
+        for(int i=endd;i>=start+1;i--)
+        {
+            str[i+1]=str[i];
+        }
+        str[start+1]='*';
+        endd=endd+1;
+    }
+    duplicate(str,start+1,endd);
+
+}
+int main()
+{
+    char str[1000];
+    int start=0,endd;
+    cin>>str;
+    endd=strlen(str)-1;
+    duplicate(str,start,endd);
+    cout<<str;
+    return 0;
+}
