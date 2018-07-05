@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int dectobin(int no)
+{
+    int pow=1,temp,rem,ans=2,sol=0,m;
+    rem=no%10;
+    sol=sol+rem;
+    no=no/10;
+    rem=no%10;
+    sol=sol+2*rem;
+    no=no/10;
+    pow++;
+   // cout<<"no="<<no<<endl;
+    while(no>0)
+    {
+
+     rem=no%10;
+    
+     temp=pow-1;
+   
+     while(temp!=0)
+     {
+         ans=ans*2;
+         temp--;
+     }
+  
+     sol=sol+ans*rem;
+ 
+     pow++;
+     no=no/10;
+ans=2;
+    }
+    cout<<sol;
+}
+int main()
+{
+int no,value;
+cin>>no;
+value=dectobin(no);
+//cout<<value;
+return 0;
+}
