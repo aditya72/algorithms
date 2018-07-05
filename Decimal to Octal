@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int quot,rem,no,temp=1,res=0;
+cin>>no;
+while(no!=0)
+{
+ quot=no/8;
+ rem=no%8;
+ no=quot;
+ res=temp*rem+res;
+ temp=temp*10;
+}
+cout<<res;
+return 0;
+}
