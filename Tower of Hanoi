@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int countt=0;
+void towerofhanoii(int n,char source[],char dest[],char helper[])
+{
+    if(n==0)
+    {
+        return;
+    }
+    towerofhanoii(n-1,source,helper,dest);
+    //Move 1th disc from T1 to T3
+    cout<<"Move "<<n<<"th"<<" disc from "<<source<<" to "<<dest<<endl;
+    countt++;
+    towerofhanoii(n-1,helper,dest,source);
+
+}
+int main()
+{
+int n;
+cin>>n;
+char source[10]="T1",dest[10]="T2",helper[10]="T3";
+towerofhanoii(n,source,dest,helper);
+cout<<endl;
+cout<<countt;
+return 0;
+}
