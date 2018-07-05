@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int temp=1,a[100][100],i,j,n,m;
+cin>>n>>m;
+for(i=1;i<=n;i++)
+{
+    for(j=1;j<=m;j++)
+    {
+        cin>>a[i][j];
+    }
+}
+for(i=1;i<=n;i++)
+{
+    if(temp==1)
+    {
+    for(j=temp;j<=m;j++)
+    {
+        cout<<a[i][j]<<","<<" ";
+    }
+}
+else if(temp==m)
+{
+    for(j=temp;j>=1;j--)
+    {
+        cout<<a[i][j]<<","<<" ";
+    }
+}
+if(temp==1)
+{
+    temp=m;
+}
+else if(temp==m)
+{
+    temp=1;
+}
+}
+cout<<"END";
+ return 0;
+}
