@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int maxx=0,freq[100008]={0},no,temp,rem,i=1;
+cin>>no;
+temp=no;
+while(temp!=0)
+{
+ rem=temp%10;
+ if(rem>maxx)
+ {
+     maxx=rem;
+ }
+ freq[rem]=i;
+ i++;
+ temp=temp/10;
+}
+for(i=maxx;i>=1;i--)
+{
+    if(freq[i]!=0)
+    {
+        cout<<freq[i];
+    }
+}
+
+return 0;
+}
