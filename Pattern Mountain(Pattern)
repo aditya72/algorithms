@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,x,space,i,k,m,temp=0,j;
+    cin>>n;
+    space=(n-1)*2+1;
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        {
+            cout<<j<<"\t";
+        }
+     for(k=1;k<=space-(2*i);k++)
+     {
+         cout<<" "<<"\t";
+     }
+       // space=space-2;
+        if(i<n)
+        {
+        for(x=j-1;x>=1;x--)
+        {
+            cout<<x<<"\t";
+        }
+        }
+        else if(i==n)
+        {
+            for(x=j-2;x>=1;x--)
+            {
+                cout<<x<<"\t";
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
