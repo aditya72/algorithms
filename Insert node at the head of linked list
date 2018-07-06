@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *next;
+    node(int d)
+    {
+        data=d;
+        next=NULL;
+    }
+};
+    void in(node *&head,int data)
+    {
+         node *n=new node(data);
+         n->next=head;
+        head=n;
+    }
+    void printlinkedlist(node *head)
+    {
+
+        while(head!=NULL)
+        {
+            cout<<head->data<<"->";
+            head=head->next;
+        }
+    }
+
+int main()
+{
+  node *head=NULL;
+  in(head,5);
+  in(head,6);
+  in(head,1);
+  printlinkedlist(head);
+return 0;
+}
