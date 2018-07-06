@@ -1,0 +1,59 @@
+ #include<iostream>
+ using namespace std;
+ class node
+ {
+     public:
+     int data;
+     node *next;
+    node(int d)
+    {
+        data=d;
+        next=NULL;
+    }
+
+ };
+ void inslast(node *&head,int n)
+ {
+     int temp=0,data;
+     while(temp!=n)
+     {
+         node *a=head;
+         cin>>data;
+         node *n=new node(data);
+         if(head==NULL) //FIRST NODE
+         {
+            n->next=NULL;
+            head=n;
+         }
+         else
+         {
+         while(a->next!=NULL)
+         {
+            a=a->next;
+         }
+             a->next=n;
+             n->next=NULL;
+             }
+     temp++;
+         }
+
+     }
+ void print(node *head,int n)
+ {
+     int temp=0;
+     while(head!=NULL)
+     {
+         cout<<head->data<<"->";
+         head=head->next;
+     }
+ }
+ int main()
+ {
+     node *head=NULL;
+     int n;
+     cout<<"enter n"<<endl;
+     cin>>n;
+     inslast(head,n);
+     print(head,n);
+     return 0;
+ }
