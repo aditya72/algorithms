@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+class node
+{
+    public:
+    int data;
+    node *next;
+    node(int d)
+    {
+        data=d;
+        next=NULL;
+    }
+};
+void buildlinkedlist(node *&head,int n)
+{
+    while(n--)
+    {
+        int data;
+        cin>>data;
+        node *newnode=new node(data);
+        node *temp=head;
+        if(head==NULL)
+        {
+            newnode->next=NULL;
+            head=newnode;
+        }
+        else
+        {
+         while(temp->next!=NULL)
+         {
+             temp=temp->next;
+         }
+         temp->next=newnode;
+         newnode->next=NULL;
+        }
+    }
+}
+void printll(node *prev)
+{
+    while(prev!=NULL)
+    {
+        cout<<prev->data<<" ";
+        prev=prev->next;
+
+    }
+}
+void reverselinkedlist(node *&head,node *&curr,node *&ahead,node *&prev,int n)
+{
+while(curr!=NULL)
+{
+    if(n==1)
+    {
+       prev->next=NULL;
+       curr=curr->next;
+    }
+    else if(curr==head)
+    {
+        curr=curr->next;
+        ahead=curr->next;
+        prev->next=NULL;
+        curr->next=prev;
+        prev=curr;
+        curr=ahead;
+    }
+    else
+    {
+        ahead=ahead->next;
+        curr->next=prev;
+        prev=curr;
+        curr=ahead;
+    }
+}
+}
+int main()
+{
+    node *head=NULL;
+    node *reversehead=NULL;
+    int n;
+    cin>>n;
+    buildlinkedlist(head,n);
+    node *curr=head;
+    node *ahead=head;
+    node *prev=head;
+    reverselinkedlist(head,curr,ahead,prev,n);
+    printll(prev);
+    return 0;
+}
