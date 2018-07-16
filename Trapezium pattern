@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,i,j,temp=1;
+    cin>>n;
+    int ap=n*n+1;
+    int no=n,z=n-1,f,g;
+    //space loop
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<2*i;j++)
+        {
+            cout<<" ";
+        }
+        for(f=1;f<=no;f++)
+        {
+            cout<<temp<<"*";
+            ++temp;
+        }
+        for(g=ap;g<=ap+z;g++)
+        {
+            if(g==ap+z)
+            {
+                cout<<g;
+                break;
+            }
+            cout<<g<<"*";
+        }
+        --no;
+        ap=ap-z;
+        --z;
+
+    cout<<endl;
+    }//i
+    return 0;
+}
