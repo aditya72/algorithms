@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+int partitionn(int a[],int start,int endd)
+{
+    int pivot=a[endd];
+    int i=start-1,j;
+    for(j=start;j<=endd-1;j++)
+    {
+        if(a[j]<=pivot)
+        {
+            i++;
+            swap(a[i],a[j]);
+        }
+    }
+    swap(a[i+1],a[endd]);
+    return i+1;
+}
+void quicksort(int a[],int start,int endd)
+{
+    if(start<endd)
+    {
+        int pivot=partitionn(a,start,endd);
+        quicksort(a,pivot+1,endd);
+        quicksort(a,start,pivot-1);
+    }
+
+}
+int main()
+{
+    int i,n,a[1000],start,endd,pivot;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    start=0,endd=n-1;
+    quicksort(a,start,endd);
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    //printarray
+    return 0;
+}
