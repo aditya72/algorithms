@@ -1,0 +1,63 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int test;
+    cin>>test;
+    while(test--)
+    {
+    int height[100007],trap=0;
+    int i,n,left[100007],right[100007],greatleft=0,greatright;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>height[i];
+
+    }
+    greatright=n-1;
+    for(i=0;i<n;i++)
+    {
+        if(height[i]>height[greatleft])
+        {
+            greatleft=i;
+            left[i]=greatleft;
+        }
+        else
+        {
+            left[i]=greatleft;
+        }
+    }
+    for(i=n-1;i>=0;i--)
+    {
+        if(height[i]>height[greatright])
+        {
+            greatright=i;
+            right[i]=greatright;
+        }
+        else
+        {
+            right[i]=greatright;
+        }
+    }
+    //for(i=0;i<n;i++)
+    //{
+     //   cout<<"left[i]="<<left[i]<<" "<<"right[i]="<<right[i]<<endl;
+    //}
+    int diff,currheight;
+    for(i=0;i<n;i++)
+    {
+        currheight=min(height[left[i]],height[right[i]]);
+        diff=currheight-height[i];
+        if(diff<0)
+        {
+            diff=0;
+        }
+        trap=trap+diff;
+       // cout<<"trap="<<trap<<endl;
+    }
+    cout<<trap<<endl;
+    }
+
+    return 0;
+}
