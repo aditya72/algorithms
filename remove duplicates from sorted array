@@ -1,0 +1,22 @@
+'''
+1. Keep a j pointer at first index
+2. Iterate i over array
+3. Check if i and j not equal if not then push current element to
+j+1 pos and increment both i and j
+4. If they are equal do nothing and only increment i
+'''
+def removeDuplicates(nums):
+        j = 0
+        for i in range(1,len(nums)):
+            if nums[i] != nums[j]:
+                j+=1
+                nums[j] = nums[i]
+            else:
+                continue;
+        return nums 
+
+
+arr = [-2, 2, 4, 4, 4, 4, 5, 5]
+
+
+print(removeDuplicates(arr))
