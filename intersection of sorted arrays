@@ -1,0 +1,21 @@
+def interSection(nums1, nums2):
+        fp = 0
+        sp = 0
+        new_arr = []
+        
+        while(fp!=len(nums1)-1 and sp!=len(nums2)-1):
+            if nums1[fp] == nums2[sp]:
+                new_arr.append(nums1[fp])
+                fp+=1
+                sp+=1
+            elif nums1[fp] < nums2[sp]:
+                fp+=1
+            else:
+                sp+=1 
+                
+        return new_arr
+
+nums1 = [-45, -45, 0, 0, 2]
+nums2 = [-50, -45, 0, 0, 5, 7]
+
+print(interSection(nums1, nums2))                        
