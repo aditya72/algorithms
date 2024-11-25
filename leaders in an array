@@ -1,0 +1,14 @@
+class Solution:
+    def leaders(self, nums):
+        if len(nums) == 1:
+          return  nums[0]
+        lead = []
+        max_so_far = nums[-1]
+        for i in range(len(nums)-1,-1,-1):
+            if nums[i] >= max_so_far:
+                max_so_far = nums[i]
+                if lead and nums[i] == lead[-1]:
+                    continue
+                lead.append(max_so_far)
+        return list(reversed(lead))  
+        
