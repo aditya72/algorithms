@@ -1,0 +1,23 @@
+class Solution:
+    def rearrangeArray(self, nums):
+        neg = []  # List to hold negative numbers
+        pos = []  # List to hold positive numbers
+        org = []  # List to hold final rearranged output
+        for i in range(0,len(nums)):
+            if nums[i] < 0:
+                neg.append(nums[i])  # Collect negative numbers
+            else:
+                pos.append(nums[i])  # Collect positive numbers
+        pointNeg = 0
+        pointPos = 0
+        mid = int(len(nums)/2)
+        for i in range(0,mid):
+            org.append(pos[pointPos])
+            org.append(neg[pointNeg])
+            pointNeg+=1
+            pointPos+=1    
+                
+        return org
+        
+
+
