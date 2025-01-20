@@ -1,0 +1,37 @@
+def majorityElementTwo(nums):
+    curr1 = None
+    curr2 = None
+    cnt1=0
+    cnt2=0
+    for i in nums:  
+        if cnt1 == 0 and curr2 != i:
+            cnt1+=1
+            curr1 = i
+        elif cnt2 == 0 and curr1 != i:
+            cnt2+=1
+            curr2 = i
+        elif curr1 == i:
+            cnt1+=1
+        elif curr2 == i:
+            cnt2+=1  
+        else:
+            cnt1-=1
+            cnt2-=1              
+    print("n/3",int(len(nums)/3+1))
+    cnt1 = 0
+    cnt2 = 0
+    res = []
+    for i in nums:
+        if i == curr1:
+            cnt1+=1
+            if cnt1 == int(len(nums)/3+1):
+                res.append(curr1)
+        elif i == curr2:
+            cnt2+=1
+            if cnt2 == int(len(nums)/3+1):
+                res.append(curr2)
+    print(curr1,curr2,cnt1,cnt2)
+    print("res",res)
+    
+majorityElementTwo( [1, 2, 1, 1, 3, 2, 2, 3])    
+
